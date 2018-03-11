@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
     <head>
+
       <meta charset="utf-8">
 
       <title>ZhAYinG | Trivia Game</title>
@@ -22,16 +24,72 @@
       </script>
 
       <!-- custom js -->
-      <script src="assets/js/script.js"></script>
+      <script src="assets/js/app.js"></script>
 
     </head>
+
     <body>
       <div class="container">
         <div class="row">
-          <div class="col-xs-12 col-lg-12">
-            <h1></h1>
-          </div>
-        </div>
-      </div>
+          <div class="col-sm-6 col-lg-6">
+            <h1 class="text-right jackpots">Trivia&nbsp;</h1>
+          </div><!-- /.col-12 -->
+          <div class="col-sm-6 col-lg-6">
+            <h1 class="text-left jackpots">Game</h1>
+          </div><!-- /.col-12 -->
+        </div><!-- /.row -->
+        <!-- <div class="row">
+          <div class="col-lg-4 offset-lg-5">
+            <button id="startButton" class="ml-5">Start</button>
+          </div><!-- /.col-12 --
+        </div><!-- /.row -- -->
+        <div class="row">
+          <div class="col-lg-12 ml-0 mr-0 pl-0 pr-0">
+            <!-- The parent component -->
+            <div class="curtain">
+
+              <!-- The component wrapper -->
+              <div class="curtain__wrapper">
+
+                <!-- The checkbox hack! -->
+                <input type="checkbox" checked>
+
+                <!-- The left curtain panel -->
+                <div class="curtain__panel curtain__panel--left text-right align-middle">
+                  <img src="assets/img/left.png" />
+                  <h1>Click to reveal&nbsp;</h1>
+                </div> <!-- curtain__panel -->
+
+                <!-- The prize behind the curtain panels -->
+                <div class="curtain__prize">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <p id="q1">What is question one?</p>
+                        <p id="q2">What is question two?</p>
+                        <p id="q3">What is question three?</p>
+                        <p id="q4">What is question four?</p>
+                        <p id="q5">What is question five?</p>
+                        <p id="q6">What is question six?</p>
+                        <p id="q7">What is question seven?</p>
+                        <p id="q8">What is question eight?</p>
+                      </div>
+                    </div>
+                  </div>
+                </div> <!-- curtain__prize -->
+
+                <!-- The right curtain panel -->
+                <div class="curtain__panel curtain__panel--right">
+                  <img src="assets/img/right.png" />
+                  <h1>the trivia questions...</h1>
+                </div> <!-- curtain__panel -->
+
+              </div> <!-- curtain__wrapper -->
+
+            </div> <!-- curtain -->
+          </div><!-- /.col-12 -->
+        </div><!-- /.row -->
+      </div><!-- /.container -->
     </body>
+
 </html>
