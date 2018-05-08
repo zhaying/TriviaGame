@@ -51,7 +51,7 @@
               <div class="curtain__wrapper">
 
                 <!-- The checkbox hack! -->
-                <input type="checkbox" checked>
+                <input type="checkbox">
 
                 <!-- The left curtain panel -->
                 <div class="curtain__panel curtain__panel--left text-right align-middle">
@@ -147,19 +147,36 @@
                     </div><!-- /.row -->
 
                     <div class="row">
-                      <div class="col-lg-12">
-                        <p id="q1">What is question one?</p>
-                        <p id="q2">What is question two?</p>
-                        <p id="q3">What is question three?</p>
-                        <p id="q4">What is question four?</p>
-                        <p id="q5">What is question five?</p>
-                        <p id="q6">What is question six?</p>
-                        <p id="q7">What is question seven?</p>
-                        <p id="q8">What is question eight?</p>
-                      </div>
-                    </div>
-                  </div>
-                </div> <!-- curtain__prize -->
+                      <div class="col-lg-6 offset-lg-1 mt-5">
+                        <form>
+                            <div class="question">
+                                <p><strong>Q1</strong>: Mary is English. She was born in London</p>
+                                <label>
+                                    <input type="radio" name="one" value="a">Mary was born in England</label>
+                                <label>
+                                    <input type="radio" name="one" value="b">Mary, who is English, was born in London</label>
+                                <label>
+                                    <input type="radio" name="one" value="c">English Mary was born in London</label>
+                                <label>
+                                    <input type="radio" name="one" value="d">London Mary is English born</label>
+                            </div>
+                            <div class="question">
+                                <p><strong>Q2</strong>: Mary is English. She was born in London</p>
+                                <label>
+                                    <input type="radio" name="two" value="a">Mary was born in England</label>
+                                <label>
+                                    <input type="radio" name="two" value="b">Mary, who is English, was born in London</label>
+                                <label>
+                                    <input type="radio" name="two" value="c">English Mary was born in London</label>
+                                <label>
+                                    <input type="radio" name="two" value="d">London Mary is English born</label>
+                            </div>
+                            <input type="submit" />
+                        </form>
+                      </div> <!-- ./col-lg-6 -->
+                    </div> <!-- ./row -->
+                  </div> <!-- ./container within curtain prize -->
+                </div> <!-- ./curtain__prize -->
 
                 <!-- The right curtain panel -->
                 <div class="curtain__panel curtain__panel--right">
