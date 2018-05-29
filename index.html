@@ -37,156 +37,41 @@
             <h1 class="text-left jackpots">Game</h1>
           </div><!-- /.col-12 -->
         </div><!-- /.row -->
-        <!-- <div class="row">
-          <div class="col-lg-4 offset-lg-5">
-            <button id="startButton" class="ml-5">Start</button>
-          </div><!-- /.col-12 --
-        </div><!-- /.row -- -->
         <div class="row">
           <div class="col-lg-12 ml-0 mr-0 pl-0 pr-0">
             <!-- The parent component -->
-            <div class="curtain">
+            <div id="clockdiv"></div>
+            <div class="card" style="width: 100%;">
+              <div id="cardContent" class="card-body">
+                <!-- <h5 class="card-title">Card title</h5> -->
+                <!-- <form id="triviaForm" onsubmit="getScore(correctAnswersTable)"> -->
+                  <form id="triviaForm">
+                <div id="triviaFormGroup" class="form-group"> <!-- Submit button !-->
 
-              <!-- The component wrapper -->
-              <div class="curtain__wrapper">
-
-                <!-- The checkbox hack! -->
-                <input type="checkbox">
-
-                <!-- The left curtain panel -->
-                <div class="curtain__panel curtain__panel--left text-right align-middle">
-                  <img src="assets/img/left.png" />
-                  <h1>Click to reveal&nbsp;</h1>
-                </div> <!-- curtain__panel -->
-
-                <!-- The prize behind the curtain panels -->
-                <div class="curtain__prize">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-lg-12">
-                        <div class="countdown">
-                          <div class="bloc-time hours" data-init-value="00">
-                            <span class="count-title">Hours</span>
-
-                            <div class="figure hours hours-1">
-                              <span class="top">0</span>
-                              <span class="top-back">
-                                <span>2</span>
-                              </span>
-                              <span class="bottom">0</span>
-                              <span class="bottom-back">
-                                <span>2</span>
-                              </span>
-                            </div>
-
-                            <div class="figure hours hours-2">
-                              <span class="top">0</span>
-                              <span class="top-back">
-                                <span>4</span>
-                              </span>
-                              <span class="bottom">0</span>
-                              <span class="bottom-back">
-                                <span>4</span>
-                              </span>
-                            </div>
-                          </div>
-
-                          <div class="bloc-time min" data-init-value="2">
-                            <span class="count-title">Minutes</span>
-
-                            <div class="figure min min-1">
-                              <span class="top">2</span>
-                              <span class="top-back">
-                                <span>0</span>
-                              </span>
-                              <span class="bottom">2</span>
-                              <span class="bottom-back">
-                                <span>0</span>
-                              </span>
-                            </div>
-
-                            <div class="figure min min-2">
-                             <span class="top">0</span>
-                              <span class="top-back">
-                                <span>0</span>
-                              </span>
-                              <span class="bottom">0</span>
-                              <span class="bottom-back">
-                                <span>0</span>
-                              </span>
-                            </div>
-                          </div>
-
-                          <div class="bloc-time sec" data-init-value="0">
-                            <span class="count-title">Seconds</span>
-
-                              <div class="figure sec sec-1">
-                              <span class="top">0</span>
-                              <span class="top-back">
-                                <span>0</span>
-                              </span>
-                              <span class="bottom">0</span>
-                              <span class="bottom-back">
-                                <span>0</span>
-                              </span>
-                            </div>
-
-                            <div class="figure sec sec-2">
-                              <span class="top">0</span>
-                              <span class="top-back">
-                                <span>0</span>
-                              </span>
-                              <span class="bottom">0</span>
-                              <span class="bottom-back">
-                                <span>0</span>
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div><!-- /.col-12 -->
-                    </div><!-- /.row -->
-
-                    <div class="row">
-                      <div class="col-lg-6 offset-lg-1 mt-5">
-                        <form>
-                            <div class="question">
-                                <p><strong>Q1</strong>: Mary is English. She was born in London</p>
-                                <label>
-                                    <input type="radio" name="one" value="a">Mary was born in England</label>
-                                <label>
-                                    <input type="radio" name="one" value="b">Mary, who is English, was born in London</label>
-                                <label>
-                                    <input type="radio" name="one" value="c">English Mary was born in London</label>
-                                <label>
-                                    <input type="radio" name="one" value="d">London Mary is English born</label>
-                            </div>
-                            <div class="question">
-                                <p><strong>Q2</strong>: Mary is English. She was born in London</p>
-                                <label>
-                                    <input type="radio" name="two" value="a">Mary was born in England</label>
-                                <label>
-                                    <input type="radio" name="two" value="b">Mary, who is English, was born in London</label>
-                                <label>
-                                    <input type="radio" name="two" value="c">English Mary was born in London</label>
-                                <label>
-                                    <input type="radio" name="two" value="d">London Mary is English born</label>
-                            </div>
-                            <input type="submit" />
-                        </form>
-                      </div> <!-- ./col-lg-6 -->
-                    </div> <!-- ./row -->
-                  </div> <!-- ./container within curtain prize -->
-                </div> <!-- ./curtain__prize -->
-
-                <!-- The right curtain panel -->
-                <div class="curtain__panel curtain__panel--right">
-                  <img src="assets/img/right.png" />
-                    <h1>the trivia questions...</h1>
-                </div> <!-- curtain__panel -->
-
-              </div> <!-- curtain__wrapper -->
-
-            </div> <!-- curtain -->
+                </div>
+              </form>
+              </div>
+            </div>
+            <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
           </div><!-- /.col-12 -->
         </div><!-- /.row -->
       </div><!-- /.container -->
