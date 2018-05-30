@@ -190,14 +190,20 @@ $(document).ready(function() {
 
                     //      Testing
                     console.log("console.log.In.summary.status.0=", summary);
-
                 } //end if 1
 
-                // Display summary values to the UI
-                cardContent.append('<h1>' + summary.title + '</h1>');
-                cardContent.append('<h2>Correct Answers:' + summary.correctAnswers + '</h2>');
-                cardContent.append('<h2>Incorrect Answers:' + summary.incorrectAnswers + '</h2>');
-                cardContent.append('<h2>Unanswered:' + summary.unanswered + '</h2>');
+                uiSummaryDisplay(summary);
+
+                function uiSummaryDisplay(summary){
+                  // Display summary values to the UI
+                  cardContent.append('<h1>' + summary.title + '</h1>');
+                  cardContent.append('<h2>Correct Answers:' + summary.correctAnswers + '</h2>');
+                  cardContent.append('<h2>Incorrect Answers:' + summary.incorrectAnswers + '</h2>');
+                  if (summary.status === 0) {
+                    cardContent.append('<h2>Unanswered:' + summary.unanswered + '</h2>');
+                  }
+                }
+
             }; //end reportSummary
 
 
@@ -295,7 +301,7 @@ $(document).ready(function() {
 
             } else { //Set a deadline 10 minutes from now and save it in a cookie with that name
                 // create deadline 5 minutes from now
-                var timeInMinutes = 5;
+                var timeInMinutes = 2.5;
                 var currentTime = Date.parse(new Date());
                 var deadline = new Date(currentTime + timeInMinutes * 60 * 1000);
                 console.log("else.deadline:", deadline);
