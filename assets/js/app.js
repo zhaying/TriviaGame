@@ -64,19 +64,20 @@ $(document).ready(function() {
                     //        console.log(theQuestion);
 
                     // Creating form elements from api results
-                    var questionFormGroup = $('<div>');
-                    questionFormGroup.addClass("form-group");
+                    var questionFormGroup = $('<div class="questionFormGroup">');
+                    questionFormGroup.addClass("form-group mb-0");
 
                     var labelWithQuestion = $('<label class="control-label"><span id="q' + i + '" class="questionsBold"></span></label>');
-                    var radioDiv = $('<div>');
-                    radioDiv.addClass("radio");
-                    var radioLabel = $('<label>');
+                    var radioDiv = $('<div class="radioDiv">');
+                    radioDiv.addClass("radio mt-0 mb-3");
+                    //var radioLabel = $('<label>');
 
                     // Construct the html by appending html elements
                     triviaFormGroup.append(questionFormGroup);
                     questionFormGroup.append(labelWithQuestion);
-                    triviaFormGroup.append(radioDiv);
-                    radioDiv.append(radioLabel);
+                    radioDiv.appendTo(triviaFormGroup);
+                  //  triviaFormGroup.append(radioDiv);
+                    //radioDiv.append(radioLabel);
 
                     // Get incorrect answers
                     var incorrectAnswersArray = element.incorrect_answers;
@@ -108,9 +109,14 @@ $(document).ready(function() {
                             // Start at one
                             var j = j + 1;
                             // Create input radio buttons
-                            var radioInput = $('<input id="input-q' + i + '-pos' + j + '" type="radio" name="q' + i + '-answer" value="' + anAnswer + '" >');
+                            //var radioInput = '<input id="input-q' + i + '-pos' + j + '" type="radio" name="q' + i + '-answer" value="' + anAnswer + '" >';
                             // Attach the radio buttons into the label
-                            radioInput.appendTo(radioLabel).after(' ' + anAnswer + ' ');
+                          //  radioInput.appendTo(radioLabel);
+                          var radioLabel =  $('<label class="pl-1">').html('<input id="input-q' + i + '-pos' + j + '" type="radio" name="q' + i + '-answer" value="' + anAnswer + '" >' +' ' +anAnswer );
+                          radioLabel.appendTo(radioDiv);
+                        //  radioDiv.appendTo(triviaFormGroup);
+                            //.after(' ' + anAnswer + ' ');
+                            //radioInput.html(anAnswer);
                         }); //end shuffledAnswers.forEach
 
                     }); //end correctAnswerArray.forEach
