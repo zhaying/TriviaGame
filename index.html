@@ -29,7 +29,7 @@
 
     <body>
       <div class="container">
-        <div class="row">
+        <div id="titleRow" class="row">
           <div class="col-sm-6 col-lg-6">
             <h1 class="text-right jackpots">Trivia&nbsp;</h1>
           </div><!-- /.col-12 -->
@@ -37,10 +37,28 @@
             <h1 class="text-left jackpots">Game</h1>
           </div><!-- /.col-12 -->
         </div><!-- /.row -->
-        <div class="row">
+        <div id="clockRow" class="row mt-0 mb-2">
+          <div class="col-sm-12 col-lg-12">
+            <div id="clockdiv">
+              <div class="mr-5">
+                <div class="smalltext">Hours</div>
+                <span class="hours"></span>
+              </div>
+              <div class="mr-5">
+                <div class="smalltext">Minutes</div>
+                <span class="minutes"></span>
+              </div>
+              <div>
+                <div class="smalltext">Seconds</div>
+                <span class="seconds"></span>
+              </div>
+            </div>
+          </div><!-- /.col-12 -->
+        </div><!-- /.row -->
+        <div id="quizRow" class="row">
           <div class="col-lg-12 ml-0 mr-0 pl-0 pr-0">
             <!-- The parent component -->
-            <div id="clockdiv"></div>
+            <!-- <div id="clockdiv"></div> -->
             <div class="card" style="width: 100%;">
               <div id="cardContent" class="card-body">
                 <!-- <h5 class="card-title">Card title</h5> -->

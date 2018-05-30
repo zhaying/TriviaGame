@@ -264,26 +264,62 @@ $(document).ready(function() {
             function initializeClock(id, endtime) {
                 console.log("Initializing the Clock");
                 var clock = document.getElementById(id);
-                var timeinterval = setInterval(function() {
-                    var t = getTimeRemaining(endtime);
-                    clock.innerHTML = 'Time Remaining: ' +
-                        'days: ' + t.days + ' ' +
-                        'hours: ' + t.hours + ' ' +
-                        'minutes: ' + t.minutes + ' ' +
-                        'seconds: ' + t.seconds;
-                    if (t.total <= 0) {
-                        clearInterval(timeinterval);
-                        var summary = {
-                            title: "Times up!",
-                            status: 0,
-                            incorrectAnswers: 0,
-                            correctAnswers: 0,
-                            unanswered: 0
-                        }; //end summary obj
-                        // Run summary when time runs out
-                        reportSummary(summary);
-                    } //end if t.total 0
-                }, 1000); //end timeinterval
+                //var daysSpan = clock.querySelector('.days');
+                var hoursSpan = clock.querySelector('.hours');
+                var minutesSpan = clock.querySelector('.minutes');
+                var secondsSpan = clock.querySelector('.seconds');
+
+
+                // var timeinterval = setInterval(function() {
+                //   var hoursSpan = clock.querySelector('.hours');
+                //   var minutesSpan = clock.querySelector('.minutes');
+                //   var secondsSpan = clock.querySelector('.seconds');
+                //
+                //     var t = getTimeRemaining(endtime);
+                //     // clock.innerHTML = 'Time Remaining: ' +
+                //     //     'days: ' + t.days + ' ' +
+                //     //     'hours: ' + t.hours + ' ' +
+                //     //     'minutes: ' + t.minutes + ' ' +
+                //     //     'seconds: ' + t.seconds;
+                //     hoursSpan.innerHTML = t.hours;
+                //     minutesSpan.innerHTML = t.minutes;
+                //     secondsSpan.innerHTML = t.seconds;
+                //
+                //     if (t.total <= 0) {
+                //         clearInterval(timeinterval);
+                //         var summary = {
+                //             title: "Times up!",
+                //             status: 0,
+                //             incorrectAnswers: 0,
+                //             correctAnswers: 0,
+                //             unanswered: 0
+                //         }; //end summary obj
+                //         // Run summary when time runs out
+                //         reportSummary(summary);
+                //     } //end if t.total 0
+                // }, 1000); //end timeinterval
+                function updateClock(){
+                  var t = getTimeRemaining(endtime);
+                  //daysSpan.innerHTML = t.days;
+                  hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+                  minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+                  secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+                  if(t.total<=0){
+                    clearInterval(timeinterval);
+                    var summary = {
+                        title: "Times up!",
+                        status: 0,
+                        incorrectAnswers: 0,
+                        correctAnswers: 0,
+                        unanswered: 0
+                    }; //end summary obj
+                    // Run summary when time runs out
+                    reportSummary(summary);
+                  }
+                }
+                updateClock(); // run function once at first to avoid delay
+                var timeinterval = setInterval(updateClock,1000);
+
             } //end initializeClock
 
 
