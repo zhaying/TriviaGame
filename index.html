@@ -1,100 +1,78 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
-    <head>
+<head>
 
-      <meta charset="utf-8">
+    <meta charset="utf-8">
 
-      <title>ZhAYinG | Trivia Game</title>
+    <title>ZhAYinG | Trivia Game</title>
 
-      <!-- import css -->
-      <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-          crossorigin="anonymous">
-      <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <!-- import css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 
-      <!-- custom css -->
-      <link rel="stylesheet" href="assets/css/style.css" >
+    <!-- custom css -->
+    <link rel="stylesheet" href="assets/css/style.css">
 
-      <!-- import js -->
-      <script
-          src="https://code.jquery.com/jquery-3.3.1.min.js"
-          integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-          crossorigin="anonymous">
-      </script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <!-- import js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
 
-    </head>
+</head>
 
-    <body>
-      <div class="container">
+<body>
+    <div class="container">
         <div id="titleRow" class="row">
-          <div class="col-sm-6 col-lg-6">
-            <h1 class="text-right jackpots">Trivia&nbsp;</h1>
-          </div><!-- /.col-12 -->
-          <div class="col-sm-6 col-lg-6">
-            <h1 class="text-left jackpots">Game</h1>
-          </div><!-- /.col-12 -->
-        </div><!-- /.row -->
+            <div class="col-sm-6 col-lg-6">
+                <h1 class="text-right jackpots">Trivia&nbsp;</h1>
+            </div>
+            <!-- /.col-12 -->
+            <div class="col-sm-6 col-lg-6">
+                <h1 class="text-left jackpots">Game</h1>
+            </div>
+            <!-- /.col-12 -->
+        </div>
+        <!-- /.row -->
         <div id="clockRow" class="row mt-0 mb-2">
-          <div class="col-sm-12 col-lg-12">
-            <div id="clockdiv">
-              <div class="mr-5">
-                <div class="smalltext">Hours</div>
-                <span class="hours"></span>
-              </div>
-              <div class="mr-5">
-                <div class="smalltext">Minutes</div>
-                <span class="minutes"></span>
-              </div>
-              <div>
-                <div class="smalltext">Seconds</div>
-                <span class="seconds"></span>
-              </div>
-            </div>
-          </div><!-- /.col-12 -->
-        </div><!-- /.row -->
-        <div id="quizRow" class="row">
-          <div class="col-lg-12 ml-0 mr-0 pl-0 pr-0">
-            <!-- The parent component -->
-            <!-- <div id="clockdiv"></div> -->
-            <div class="card" style="width: 100%;">
-              <div id="cardContent" class="card-body">
-                <!-- <h5 class="card-title">Card title</h5> -->
-                <!-- <form id="triviaForm" onsubmit="getScore(correctAnswersTable)"> -->
-                  <form id="triviaForm">
-                <div id="triviaFormGroup" class="form-group"> <!-- Submit button !-->
-
+            <div class="col-sm-12 col-lg-12">
+                <div id="clockdiv">
+                    <div class="mr-5">
+                        <div class="smalltext">Hours</div>
+                        <span class="hours"></span>
+                    </div>
+                    <div class="mr-5">
+                        <div class="smalltext">Minutes</div>
+                        <span class="minutes"></span>
+                    </div>
+                    <div>
+                        <div class="smalltext">Seconds</div>
+                        <span class="seconds"></span>
+                    </div>
                 </div>
-              </form>
-              </div>
             </div>
-            <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+            <!-- /.col-12 -->
+        </div>
+        <!-- /.row -->
+        <div id="quizRow" class="row">
+            <div class="col-lg-12 ml-0 mr-0 pl-0 pr-0">
+                <div class="card" style="width: 100%;">
+                    <div id="cardContent" class="card-body">
+                        <form id="triviaForm">
+                            <div id="triviaFormGroup" class="form-group"></div>
+                        </form>
+                    </div>
+                    <!-- /.cardContent -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col-12 -->
+        </div>
+        <!-- /.row -->
     </div>
-  </div>
-</div>
-          </div><!-- /.col-12 -->
-        </div><!-- /.row -->
-      </div><!-- /.container -->
-      <!-- custom js -->
-      <script src="assets/js/app.js"></script>
-    </body>
+    <!-- /.container -->
+    <!-- custom js -->
+    <script src="assets/js/app.js"></script>
+</body>
 
 </html>

@@ -5,17 +5,12 @@ $(document).ready(function() {
             console.log("questionsAPI=", questionsAPI);
             // Initializing variables
             var correctAnswersTable = {};
-
-
-
             // Get number of questions
             var numberOfQuestions = questionsAPI.results.length;
-
             // Randomize the position of answer selections
             function shuffle(anArray) {
 
                 if (anArray.length > 2) {
-
                     for (let i = anArray.length - 1; i > 0; i--) {
                         const j = Math.floor(Math.random() * (i + 1));
                         [anArray[i], anArray[j]] = [anArray[j], anArray[i]];
@@ -26,15 +21,14 @@ $(document).ready(function() {
                 } else {
                     return anArray;
                 } //end if else
-
             }; //end shuffle
 
 
             // Draw out the trivia game to the UI
             function createTrivia(obj) {
 
-                //    Testing
-                //      fconsole.log("console.log.test=",obj);
+                // Testing
+                // fconsole.log("console.log.test=",obj);
                 // Get the API results from the response
                 var resultsArray = questionsAPI.results;
                 // Set jquery names
@@ -52,16 +46,12 @@ $(document).ready(function() {
                     // Add one to match question number
                     var i = i + 1;
 
-                    //      Testing
-                    //        console.log("console.log.i=",element);
-                    //        console.log(element);
-
-                    // Get a question from API results
+                    // Testing
                     //var theQuestion = element.question;
                     //console.log("theQuestion=",theQuestion);
 
-                    //      Testing
-                    //        console.log(theQuestion);
+                    // Testing
+                    // console.log(theQuestion);
 
                     // Creating form elements from api results
                     var questionFormGroup = $('<div class="questionFormGroup">');
@@ -70,37 +60,36 @@ $(document).ready(function() {
                     var labelWithQuestion = $('<label class="control-label"><span id="q' + i + '" class="questionsBold"></span></label>');
                     var radioDiv = $('<div class="radioDiv">');
                     radioDiv.addClass("radio mt-0 mb-3");
-                    //var radioLabel = $('<label>');
 
                     // Construct the html by appending html elements
                     triviaFormGroup.append(questionFormGroup);
                     questionFormGroup.append(labelWithQuestion);
                     radioDiv.appendTo(triviaFormGroup);
-                  //  triviaFormGroup.append(radioDiv);
-                    //radioDiv.append(radioLabel);
 
                     // Get incorrect answers
                     var incorrectAnswersArray = element.incorrect_answers;
+
                     // Initialize an array for correctAnswers
                     var correctAnswerArray = [];
+
                     // Assign elements to the array.
                     correctAnswerArray.push(element.correct_answer);
 
-                    //      Testing
-                    //        console.log("console.log.incorrect_answers=",incorrectAnswersArray);
+                    // Testing
+                    // console.log("console.log.incorrect_answers=",incorrectAnswersArray);
 
                     correctAnswerArray.forEach(function(correctAnswer, k) {
 
-                        //        Testing
-                        //          console.log(k);
-                        //          console.log(correctAnswer);
+                        // Testing
+                        // console.log(k);
+                        // console.log(correctAnswer);
                         correctAnswersTable['q' + i + '-answer'] = correctAnswer;
-                        //        Testing
-                        //          console.log("correctAnswersTable=",correctAnswersTable);
+                        // Testing
+                        // console.log("correctAnswersTable=",correctAnswersTable);
                         // Combine correct and incorrect answers to display on UI
                         var allAnswers = correctAnswerArray.concat(incorrectAnswersArray);
-                        //        Testing
-                        //          console.log("console.log.allAnswers=",allAnswers);
+                        // Testing
+                        // console.log("console.log.allAnswers=",allAnswers);
                         // Assing shuffled answers to variable
                         var shuffledAnswers = shuffle(allAnswers);
 
@@ -109,22 +98,18 @@ $(document).ready(function() {
                             // Start at one
                             var j = j + 1;
                             // Create input radio buttons
-                            //var radioInput = '<input id="input-q' + i + '-pos' + j + '" type="radio" name="q' + i + '-answer" value="' + anAnswer + '" >';
-                            // Attach the radio buttons into the label
-                          //  radioInput.appendTo(radioLabel);
-                          var radioLabel =  $('<label class="pl-1">').html('<input id="input-q' + i + '-pos' + j + '" type="radio" name="q' + i + '-answer" value="' + anAnswer + '" >' +' ' +anAnswer );
-                          radioLabel.appendTo(radioDiv);
-                        //  radioDiv.appendTo(triviaFormGroup);
-                            //.after(' ' + anAnswer + ' ');
-                            //radioInput.html(anAnswer);
+                            var radioLabel = $('<label class="pl-1">')
+                                .html('<input id="input-q' + i + '-pos' + j + '" type="radio" name="q' + i + '-answer" value="' + anAnswer + '" >' + ' ' + anAnswer);
+                            // Attach the radio label onto the div
+                            radioLabel.appendTo(radioDiv);
                         }); //end shuffledAnswers.forEach
 
                     }); //end correctAnswerArray.forEach
 
                 }); //end resultsArray.forEach
 
-                //    Testing
-                //      console.log("console.log.correctAnswerTableOut=",correctAnswersTable);
+                // Testing
+                // console.log("console.log.correctAnswerTableOut=",correctAnswersTable);
                 // Attach button to the form
                 triviaFormGroup.append(submitButton);
 
@@ -167,8 +152,8 @@ $(document).ready(function() {
                 // Empty container before adding summary of results
                 cardContent.empty();
 
-                //    Testing
-                console.log("console.log.In.summary=", summary);
+                // Testing
+                // console.log("console.log.In.summary=", summary);
 
                 // Set values of status of 0 for Timer timeout
                 if (summary.status === 0) {
@@ -188,20 +173,20 @@ $(document).ready(function() {
                     // Assign a value to unanswered
                     summary.unanswered = numberOfQuestions - subtotal;
 
-                    //      Testing
-                    console.log("console.log.In.summary.status.0=", summary);
+                    // Testing
+                    // console.log("console.log.In.summary.status.0=", summary);
                 } //end if 1
 
                 uiSummaryDisplay(summary);
 
-                function uiSummaryDisplay(summary){
-                  // Display summary values to the UI
-                  cardContent.append('<h1>' + summary.title + '</h1>');
-                  cardContent.append('<h2>Correct Answers:' + summary.correctAnswers + '</h2>');
-                  cardContent.append('<h2>Incorrect Answers:' + summary.incorrectAnswers + '</h2>');
-                  if (summary.status === 0) {
-                    cardContent.append('<h2>Unanswered:' + summary.unanswered + '</h2>');
-                  }
+                function uiSummaryDisplay(summary) {
+                    // Display summary values to the UI
+                    cardContent.append('<h1>' + summary.title + '</h1>');
+                    cardContent.append('<h2>Correct Answers:' + summary.correctAnswers + '</h2>');
+                    cardContent.append('<h2>Incorrect Answers:' + summary.incorrectAnswers + '</h2>');
+                    if (summary.status === 0) {
+                        cardContent.append('<h2>Unanswered:' + summary.unanswered + '</h2>');
+                    }
                 }
 
             }; //end reportSummary
@@ -217,16 +202,11 @@ $(document).ready(function() {
 
                 for (var property in correctAnswersTable) {
                     count++;
-                    //  console.log("property=",property);
-                    //var answer1 = $('input[name="'+property+'"]:checked').val();
-                    //  selectedAnswers['answer'+count] = $('input[name="'+property+'"]:checked').val();
                     selectedAnswers[property] = $('input[name="' + property + '"]:checked').val();
-                    //  theString = correctAnswersTable[property];
-                    // console.log("console.log.string=",theString);
                 } //end for loop on correctAnswersTable
 
-                //    Testing
-                //      console.log("selectedAnswers",selectedAnswers);
+                // Testing
+                // console.log("selectedAnswers",selectedAnswers);
                 var aProps = Object.getOwnPropertyNames(correctAnswersTable);
                 var bProps = Object.getOwnPropertyNames(selectedAnswers);
                 var correctCount = 0;
@@ -245,12 +225,12 @@ $(document).ready(function() {
                     // If values of same property are not equal, objects are not equivalent
                     if (correctAnswersTable[propName] == selectedAnswers[propName]) {
                         correctCount++;
-                        console.log("correctAnswers=", correctCount);
+                        // console.log("correctAnswers=", correctCount);
                         summary.correctAnswers = correctCount;
                     } //end if
                     if (correctAnswersTable[propName] !== selectedAnswers[propName]) {
                         incorrectCount++;
-                        console.log("incorrectAnswers=", incorrectCount);
+                        // console.log("incorrectAnswers=", incorrectCount);
                         summary.incorrectAnswers = incorrectCount;
                     } //end if
                 } //end for
@@ -269,56 +249,27 @@ $(document).ready(function() {
                 var minutesSpan = clock.querySelector('.minutes');
                 var secondsSpan = clock.querySelector('.seconds');
 
-
-                // var timeinterval = setInterval(function() {
-                //   var hoursSpan = clock.querySelector('.hours');
-                //   var minutesSpan = clock.querySelector('.minutes');
-                //   var secondsSpan = clock.querySelector('.seconds');
-                //
-                //     var t = getTimeRemaining(endtime);
-                //     // clock.innerHTML = 'Time Remaining: ' +
-                //     //     'days: ' + t.days + ' ' +
-                //     //     'hours: ' + t.hours + ' ' +
-                //     //     'minutes: ' + t.minutes + ' ' +
-                //     //     'seconds: ' + t.seconds;
-                //     hoursSpan.innerHTML = t.hours;
-                //     minutesSpan.innerHTML = t.minutes;
-                //     secondsSpan.innerHTML = t.seconds;
-                //
-                //     if (t.total <= 0) {
-                //         clearInterval(timeinterval);
-                //         var summary = {
-                //             title: "Times up!",
-                //             status: 0,
-                //             incorrectAnswers: 0,
-                //             correctAnswers: 0,
-                //             unanswered: 0
-                //         }; //end summary obj
-                //         // Run summary when time runs out
-                //         reportSummary(summary);
-                //     } //end if t.total 0
-                // }, 1000); //end timeinterval
-                function updateClock(){
-                  var t = getTimeRemaining(endtime);
-                  //daysSpan.innerHTML = t.days;
-                  hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-                  minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-                  secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-                  if(t.total<=0){
-                    clearInterval(timeinterval);
-                    var summary = {
-                        title: "Times up!",
-                        status: 0,
-                        incorrectAnswers: 0,
-                        correctAnswers: 0,
-                        unanswered: 0
-                    }; //end summary obj
-                    // Run summary when time runs out
-                    reportSummary(summary);
-                  }
+                function updateClock() {
+                    var t = getTimeRemaining(endtime);
+                    //daysSpan.innerHTML = t.days;
+                    hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+                    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+                    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+                    if (t.total <= 0) {
+                        clearInterval(timeinterval);
+                        var summary = {
+                            title: "Times up!",
+                            status: 0,
+                            incorrectAnswers: 0,
+                            correctAnswers: 0,
+                            unanswered: 0
+                        }; //end summary obj
+                        // Run summary when time runs out
+                        reportSummary(summary);
+                    }
                 }
                 updateClock(); // run function once at first to avoid delay
-                var timeinterval = setInterval(updateClock,1000);
+                var timeinterval = setInterval(updateClock, 1000);
 
             } //end initializeClock
 
@@ -330,12 +281,12 @@ $(document).ready(function() {
             // Run setQuestions
             setQuestions();
 
-            // if there's a cookie with the name myClock, use that value as the deadline
+            // if there's a cookie with the name myClock, use that value
             if (document.cookie && document.cookie.match('myClock')) {
                 // get deadline value from cookie
                 var deadline = document.cookie.match(/(^|;)myClock=([^;]+)/)[2];
 
-            } else { //Set a deadline 10 minutes from now and save it in a cookie with that name
+            } else { //Set a deadline from now and save it in a cookie
                 // create deadline 5 minutes from now
                 var timeInMinutes = 2.5;
                 var currentTime = Date.parse(new Date());
@@ -348,9 +299,7 @@ $(document).ready(function() {
             // Run initializeClock
             initializeClock('clockdiv', deadline);
 
-            //var triviaForm = $("#triviaForm");
-
-        };
+        }; //end run()
 
         console.log("console.log.status=", status);
         if (status === "success") {
@@ -401,11 +350,11 @@ $(document).ready(function() {
                         "incorrect_answers": ["Fletcher Christian", "Jay Gatsby", "Randall Flagg"]
                     }
                 ]
-            };
+            }; //end obj obj
             console.log("console.log.obj=", obj);
             var questionsAPI = obj;
             run();
-        }
-    });
+        } //end if else
+    }); //end $.get jquery
 
 }); //end document.ready
